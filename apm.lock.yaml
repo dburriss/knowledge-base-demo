@@ -1,0 +1,350 @@
+lockfile_version: '1'
+apm_version: 0.30.0
+dependencies:
+- repo_url: dburriss/eru
+  name: eru-ingestor
+  host: github.com
+  resolved_commit: d5efe8a7f28c1c9fc7fb16825f433061f3623660
+  version: 1.0.0
+  virtual_path: agents/ingestor.agent.md
+  is_virtual: true
+  package_type: apm_package
+  deployed_files:
+  - .claude/agents/ingestor.md
+  - .opencode/agents/ingestor.md
+  deployed_file_hashes:
+    .claude/agents/ingestor.md: sha256:e7a9baab66cdb2207e9fc97d733d82bcf1eb2fba267817888284261aa3e5b2ae
+    .opencode/agents/ingestor.md: sha256:e7a9baab66cdb2207e9fc97d733d82bcf1eb2fba267817888284261aa3e5b2ae
+  content_hash: sha256:9522a6c5e0969cf9ddaf6190aeaf52fd57261998a52a7de902a330442b164c6d
+- repo_url: dburriss/eru
+  name: eru
+  host: github.com
+  resolved_commit: d5efe8a7f28c1c9fc7fb16825f433061f3623660
+  version: unknown
+  virtual_path: skills/eru
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/eru
+  - .agents/skills/eru/SKILL.md
+  - .agents/skills/eru/references/commands.md
+  - .agents/skills/eru/references/mcp.md
+  - .claude/skills/eru
+  - .claude/skills/eru/SKILL.md
+  - .claude/skills/eru/references/commands.md
+  - .claude/skills/eru/references/mcp.md
+  deployed_file_hashes:
+    .agents/skills/eru/SKILL.md: sha256:5baa942ac43fa8324df47f94b725bc627eac0a9b4ae9f8c322e55fe0416a16cf
+    .agents/skills/eru/references/commands.md: sha256:2192e2e004b5e0b7c7133e53912d493dc8f2c53eb70b40397a5036426447fa90
+    .agents/skills/eru/references/mcp.md: sha256:a9d222f190fd3b10cefac898402f5416ceaaa3cafb22325b7f90472a87abe190
+    .claude/skills/eru/SKILL.md: sha256:5baa942ac43fa8324df47f94b725bc627eac0a9b4ae9f8c322e55fe0416a16cf
+    .claude/skills/eru/references/commands.md: sha256:2192e2e004b5e0b7c7133e53912d493dc8f2c53eb70b40397a5036426447fa90
+    .claude/skills/eru/references/mcp.md: sha256:a9d222f190fd3b10cefac898402f5416ceaaa3cafb22325b7f90472a87abe190
+  content_hash: sha256:7b22780e6751edd71428451addf5b89607b0b60debe5da148f0eff4519d5a985
+- repo_url: dburriss/eru
+  name: organizing-documentation
+  host: github.com
+  resolved_commit: d5efe8a7f28c1c9fc7fb16825f433061f3623660
+  version: unknown
+  virtual_path: skills/organizing-documentation
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/organizing-documentation
+  - .agents/skills/organizing-documentation/SKILL.md
+  - .claude/skills/organizing-documentation
+  - .claude/skills/organizing-documentation/SKILL.md
+  deployed_file_hashes:
+    .agents/skills/organizing-documentation/SKILL.md: sha256:25c2700a9731942523b9e43516a86b41bca274836690446b5746b253b88cff9e
+    .claude/skills/organizing-documentation/SKILL.md: sha256:25c2700a9731942523b9e43516a86b41bca274836690446b5746b253b88cff9e
+  content_hash: sha256:0a61a06d02d243d3d5f3f22bebad07060925d7cc63122b504b98a14656e7c616
+- repo_url: dburriss/eru
+  name: semantic-search
+  host: github.com
+  resolved_commit: d5efe8a7f28c1c9fc7fb16825f433061f3623660
+  version: unknown
+  virtual_path: skills/semantic-search
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/semantic-search
+  - .agents/skills/semantic-search/SKILL.md
+  - .claude/skills/semantic-search
+  - .claude/skills/semantic-search/SKILL.md
+  deployed_file_hashes:
+    .agents/skills/semantic-search/SKILL.md: sha256:d0c2b0c9e6c363e3d32301800b64819ec8f2eec0fbd0a2ea47ecf7892a9701b0
+    .claude/skills/semantic-search/SKILL.md: sha256:d0c2b0c9e6c363e3d32301800b64819ec8f2eec0fbd0a2ea47ecf7892a9701b0
+  content_hash: sha256:8c7934455ec0dc6e07d7b6ccf03325e352f1172240fe2398309fb402f94b24bc
+- repo_url: run-llama/llamaparse-agent-skills
+  name: liteparse
+  host: github.com
+  resolved_commit: 2dcef7c62417bd2ec4671fce4621bb1e8cce48d0
+  version: unknown
+  virtual_path: skills/liteparse
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/liteparse
+  - .agents/skills/liteparse/SKILL.md
+  - .agents/skills/liteparse/scripts/search.py
+  - .claude/skills/liteparse
+  - .claude/skills/liteparse/SKILL.md
+  - .claude/skills/liteparse/scripts/search.py
+  deployed_file_hashes:
+    .agents/skills/liteparse/SKILL.md: sha256:c4982f937fe569cd109801e9c6f0bd80219df93835d9a206bae6958c5e3c841c
+    .agents/skills/liteparse/scripts/search.py: sha256:72d960a0600ebcef1252c558159c5fa6b9e7ee23baad36a07ca878dd42cc9bfd
+    .claude/skills/liteparse/SKILL.md: sha256:c4982f937fe569cd109801e9c6f0bd80219df93835d9a206bae6958c5e3c841c
+    .claude/skills/liteparse/scripts/search.py: sha256:72d960a0600ebcef1252c558159c5fa6b9e7ee23baad36a07ca878dd42cc9bfd
+  content_hash: sha256:df3494465b5426e888bc8c4a928b23e5f161945a1194565eea55a7eacc529184
+deployments:
+- kind: project-relative
+  target: claude
+  value: .claude/agents/ingestor.md
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/agents/ingestor.agent.md
+  active_owner: dburriss/eru/agents/ingestor.agent.md
+  content_hash: sha256:e7a9baab66cdb2207e9fc97d733d82bcf1eb2fba267817888284261aa3e5b2ae
+- kind: project-relative
+  target: claude
+  value: .claude/skills/eru
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/eru
+  active_owner: dburriss/eru/skills/eru
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/eru/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/eru
+  active_owner: dburriss/eru/skills/eru
+  content_hash: sha256:5baa942ac43fa8324df47f94b725bc627eac0a9b4ae9f8c322e55fe0416a16cf
+- kind: project-relative
+  target: claude
+  value: .claude/skills/eru/references/commands.md
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/eru
+  active_owner: dburriss/eru/skills/eru
+  content_hash: sha256:2192e2e004b5e0b7c7133e53912d493dc8f2c53eb70b40397a5036426447fa90
+- kind: project-relative
+  target: claude
+  value: .claude/skills/eru/references/mcp.md
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/eru
+  active_owner: dburriss/eru/skills/eru
+  content_hash: sha256:a9d222f190fd3b10cefac898402f5416ceaaa3cafb22325b7f90472a87abe190
+- kind: project-relative
+  target: claude
+  value: .claude/skills/liteparse
+  runtime: null
+  scope: project
+  owners:
+  - run-llama/llamaparse-agent-skills/skills/liteparse
+  active_owner: run-llama/llamaparse-agent-skills/skills/liteparse
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/liteparse/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - run-llama/llamaparse-agent-skills/skills/liteparse
+  active_owner: run-llama/llamaparse-agent-skills/skills/liteparse
+  content_hash: sha256:c4982f937fe569cd109801e9c6f0bd80219df93835d9a206bae6958c5e3c841c
+- kind: project-relative
+  target: claude
+  value: .claude/skills/liteparse/scripts/search.py
+  runtime: null
+  scope: project
+  owners:
+  - run-llama/llamaparse-agent-skills/skills/liteparse
+  active_owner: run-llama/llamaparse-agent-skills/skills/liteparse
+  content_hash: sha256:72d960a0600ebcef1252c558159c5fa6b9e7ee23baad36a07ca878dd42cc9bfd
+- kind: project-relative
+  target: claude
+  value: .claude/skills/organizing-documentation
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/organizing-documentation
+  active_owner: dburriss/eru/skills/organizing-documentation
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/organizing-documentation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/organizing-documentation
+  active_owner: dburriss/eru/skills/organizing-documentation
+  content_hash: sha256:25c2700a9731942523b9e43516a86b41bca274836690446b5746b253b88cff9e
+- kind: project-relative
+  target: claude
+  value: .claude/skills/semantic-search
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/semantic-search
+  active_owner: dburriss/eru/skills/semantic-search
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/semantic-search/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/semantic-search
+  active_owner: dburriss/eru/skills/semantic-search
+  content_hash: sha256:d0c2b0c9e6c363e3d32301800b64819ec8f2eec0fbd0a2ea47ecf7892a9701b0
+- kind: uri
+  target: mcp
+  value: eru
+  runtime: claude
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: uri
+  target: mcp
+  value: eru
+  runtime: opencode
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/eru
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/eru
+  active_owner: dburriss/eru/skills/eru
+  content_hash: null
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/eru/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/eru
+  active_owner: dburriss/eru/skills/eru
+  content_hash: sha256:5baa942ac43fa8324df47f94b725bc627eac0a9b4ae9f8c322e55fe0416a16cf
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/eru/references/commands.md
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/eru
+  active_owner: dburriss/eru/skills/eru
+  content_hash: sha256:2192e2e004b5e0b7c7133e53912d493dc8f2c53eb70b40397a5036426447fa90
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/eru/references/mcp.md
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/eru
+  active_owner: dburriss/eru/skills/eru
+  content_hash: sha256:a9d222f190fd3b10cefac898402f5416ceaaa3cafb22325b7f90472a87abe190
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/liteparse
+  runtime: null
+  scope: project
+  owners:
+  - run-llama/llamaparse-agent-skills/skills/liteparse
+  active_owner: run-llama/llamaparse-agent-skills/skills/liteparse
+  content_hash: null
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/liteparse/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - run-llama/llamaparse-agent-skills/skills/liteparse
+  active_owner: run-llama/llamaparse-agent-skills/skills/liteparse
+  content_hash: sha256:c4982f937fe569cd109801e9c6f0bd80219df93835d9a206bae6958c5e3c841c
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/liteparse/scripts/search.py
+  runtime: null
+  scope: project
+  owners:
+  - run-llama/llamaparse-agent-skills/skills/liteparse
+  active_owner: run-llama/llamaparse-agent-skills/skills/liteparse
+  content_hash: sha256:72d960a0600ebcef1252c558159c5fa6b9e7ee23baad36a07ca878dd42cc9bfd
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/organizing-documentation
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/organizing-documentation
+  active_owner: dburriss/eru/skills/organizing-documentation
+  content_hash: null
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/organizing-documentation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/organizing-documentation
+  active_owner: dburriss/eru/skills/organizing-documentation
+  content_hash: sha256:25c2700a9731942523b9e43516a86b41bca274836690446b5746b253b88cff9e
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/semantic-search
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/semantic-search
+  active_owner: dburriss/eru/skills/semantic-search
+  content_hash: null
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/semantic-search/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/skills/semantic-search
+  active_owner: dburriss/eru/skills/semantic-search
+  content_hash: sha256:d0c2b0c9e6c363e3d32301800b64819ec8f2eec0fbd0a2ea47ecf7892a9701b0
+- kind: project-relative
+  target: opencode
+  value: .opencode/agents/ingestor.md
+  runtime: null
+  scope: project
+  owners:
+  - dburriss/eru/agents/ingestor.agent.md
+  active_owner: dburriss/eru/agents/ingestor.agent.md
+  content_hash: sha256:e7a9baab66cdb2207e9fc97d733d82bcf1eb2fba267817888284261aa3e5b2ae
+mcp_servers:
+- eru
+mcp_configs:
+  eru:
+    name: eru
+    transport: stdio
+    args:
+    - Eru.Tool
+    - --
+    - mcp
+    registry: false
+    command: dnx
+mcp_target_servers:
+  claude:
+  - eru
+  opencode:
+  - eru

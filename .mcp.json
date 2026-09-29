@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "eru": {
+      "type": "stdio",
+      "command": "dnx",
+      "args": [
+        "Eru.Tool",
+        "--",
+        "mcp"
+      ]
+    }
+  }
+}

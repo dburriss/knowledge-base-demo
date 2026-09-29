@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "sources": [],
+  "collections": [],
+  "inboxes": {
+    "kb": {
+      "path": ".",
+      "rawPath": null,
+      "defaultChannel": null,
+      "channels": {
+        "default": {
+          "description": null,
+          "agent": {
+            "protocol": "acp",
+            "command": "opencode",
+            "args": [
+              "acp"
+            ],
+            "instructionsPath": ".opencode/agents/ingestor.md",
+            "timeout": null
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "commitOnPull": null,
+    "stateFile": null,
+    "blockPatterns": null,
+    "allowPatterns": null,
+    "allowBinaries": null,
+    "siteIgnorePatterns": [
+      "index.md",
+      "log.md"
+    ],
+    "defaultInbox": null,
+    "inboxWatchIntervalSeconds": null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "mcp": {
+    "eru": {
+      "type": "local",
+      "enabled": true,
+      "command": [
+        "dnx",
+        "Eru.Tool",
+        "--",
+        "mcp"
+      ]
+    }
+  }
+}
