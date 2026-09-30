@@ -8,11 +8,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-engine:
-  id: opencode
-model: copilot/auto
-imports:
-  - github/gh-aw/.github/workflows/shared/opencode.md@7f70ca078f5b728b75f055e3cf6cbf0b3bcc1f61
+engine: copilot
 safe-outputs:
   create-pull-request:
     title-prefix: "[ingest] "
@@ -22,7 +18,7 @@ safe-outputs:
 # Ingest inbox
 
 You are curating this knowledge base. Follow the instructions in
-`.opencode/agents/ingestor.md` (the `ingestor` agent) exactly: process every
+`.github/agents/ingestor.agent.md` (the `ingestor` agent) exactly: process every
 item under `inbox/raw/` (excluding `.gitkeep`), oldest first, curating each into a
 structured note in the right domain folder with OKF frontmatter and the correct
 Diataxis type, then archive the raw item to `inbox/archive/`.

@@ -11,7 +11,7 @@ with curation run by a [GitHub Agentic Workflow](https://github.com/github/gh-aw
    curates each raw item into an OKF-fronted, Diataxis-classified note and opens a PR.
 3. Review and merge. Processed raw items move to `inbox/archive/`.
 
-Locally, `eru inbox process -i kb` does the same via the `default` channel (`opencode acp`).
+Locally, `eru inbox process -i kb` does the same via the `default` channel (`copilot --acp`).
 
 ## Setup
 
@@ -22,7 +22,6 @@ apm install           # skills + ingestor agent + eru MCP
 gh aw compile         # after editing .github/workflows/*.md
 ```
 
-The workflow uses the experimental OpenCode engine sample from gh-aw with
-`copilot/auto`; add the `COPILOT_GITHUB_TOKEN` repo secret (`gh aw secrets`).
+The workflow uses gh-aw's `copilot` engine; add the `COPILOT_GITHUB_TOKEN` repo secret (`gh aw secrets`).
 
 The inbox `kb` is registered in `.eru/config.json` (repo-local), not the global eru config.

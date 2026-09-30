@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "eru": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "",
+      "command": "dnx",
+      "args": [
+        "Eru.Tool",
+        "--",
+        "mcp"
+      ]
+    }
+  }
+}

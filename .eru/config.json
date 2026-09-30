@@ -12,11 +12,11 @@
           "description": null,
           "agent": {
             "protocol": "acp",
-            "command": "opencode",
+            "command": "copilot",
             "args": [
-              "acp"
+              "--acp"
             ],
-            "instructionsPath": ".opencode/agents/ingestor.md",
+            "instructionsPath": ".github/agents/ingestor.agent.md",
             "timeout": null
           }
         }

@@ -4,7 +4,7 @@ description: Skills and MCP servers for extracting, searching, and organizing kn
 includes: auto
 targets:
   - claude
-  - opencode
+  - copilot
 dependencies:
   apm:
     - run-llama/llamaparse-agent-skills/skills/liteparse
