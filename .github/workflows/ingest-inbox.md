@@ -29,6 +29,10 @@ safe-outputs:
     allowed-files:
       - "*.md"
       - "**/*.md"
+      - "*.pdf"
+      - "**/*.pdf"
+      - "*.json"
+      - "**/*.json"
 ---
 
 # Ingest inbox
