@@ -13,6 +13,7 @@ safe-outputs:
   create-pull-request:
     title-prefix: "[ingest] "
     labels: [knowledge, automated]
+    draft: false
 ---
 
 # Ingest inbox
