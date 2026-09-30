@@ -1,0 +1,23 @@
+name: Automerge ingest PRs
+on:
+  workflow_run:
+    workflows: ["Ingest inbox"]   # must match the `name:` in ingest-inbox.lock.yml
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  merge:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          for pr in $(gh pr list --state open --label automated \
+              --author "app/github-actions" --json number -q '.[].number'); do
+            gh pr merge "$pr" --squash --auto || gh pr merge "$pr" --squash
+          done
