@@ -9,11 +9,26 @@ on:
 permissions:
   contents: read
 engine: copilot
+strict: false
+features:
+  dangerously-disable-sandbox-agent: true
+concurrency:
+  group: ingest-inbox
+  cancel-in-progress: false
+sandbox:
+  agent: false
+tools:
+  web-fetch:
+  web-search:
 safe-outputs:
+  threat-detection: false
   create-pull-request:
     title-prefix: "[ingest] "
     labels: [knowledge, automated]
     draft: false
+    allowed-files:
+      - "*.md"
+      - "**/*.md"
 ---
 
 # Ingest inbox
