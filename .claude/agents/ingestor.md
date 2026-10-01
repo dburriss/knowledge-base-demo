@@ -4,9 +4,8 @@ description: >-
   Curates raw material dropped into inbox/raw/ into structured, OKF-fronted
   knowledge notes organized by Diataxis mode. Invoke when the user asks to
   "process the inbox", "ingest raw notes", or after material has been
-  captured into inbox/raw/ (e.g. via `eru inbox add`). Runs until
-  inbox/raw/ is empty, one commit per raw item processed.
-tools: Read, Write, Edit, Bash, Grep, Glob
+  captured into inbox/raw/ (e.g. via `eru inbox add`). Curates the
+  raw items it is pointed at.
 license: MIT
 metadata:
   category: knowledge-management
@@ -22,21 +21,22 @@ for frontmatter and [Diataxis](https://diataxis.fr) for classifying
 documentation mode.
 
 This agent definition is intentionally self-contained (inlines the Diataxis
-decision table and `ck` search guidance below) because it may run outside a
-Claude Code session — e.g. dispatched directly by an ACP-capable client, or
-handed one raw item at a time by a filesystem watcher. When running inside
-Claude Code, you may additionally consult
-`.apm/skills/organizing-documentation/SKILL.md` and
-`.apm/skills/semantic-search/SKILL.md` directly for more detail than the
-summaries below.
+decision table and `ck` search guidance below). If the `organizing-documentation`
+and `semantic-search` skills are available, you may additionally consult them
+for more detail than the summaries below; refer to them by name rather than
+by path.
 
-## Loop
+## Selecting items
 
-Process raw items in `inbox/raw/**` (excluding `.gitkeep`), **oldest file
-first** (sort by the leading timestamp in the filename, or file mtime if
-absent). For each item, run the full cycle below and commit before moving to
-the next. Stop when `inbox/raw/` has no items left, then report a short
-summary (files touched, commits made) to the user.
+Process only the raw items named by whoever invoked you (the prompt, a
+path, or a list of items under `inbox/raw/**`). This agent does not decide
+which items to process and does not sweep `inbox/raw/` on its own. If
+several items are given, process them **oldest first** (sort by the leading
+timestamp in the filename, or file mtime if absent). For each item, run the
+full cycle below before moving to the next. If no item was specified, do not
+guess: report that nothing was selected and ask which items to process. Then
+report a short summary (files touched) to the user. This file does not say
+whether or how to commit; follow any commit instructions given alongside it.
 
 ### 1. Read the item
 
@@ -85,8 +85,8 @@ resource), use a different OKF `type` value instead.
 **If the raw item's content spans more than one mode**, split it into
 separate notes — one per mode — rather than forcing a single type onto mixed
 content. Cross-link split notes with a short "see also" line. Steps 4 and 5
-below then run once per split part, but step 6 (archiving) and the commit in
-step 7 still happen once for the whole raw item.
+below then run once per split part, but step 6 (archiving) still happens once
+for the whole raw item.
 
 ### 4. Dedupe / merge check
 
@@ -131,16 +131,3 @@ merged into an existing note.
 `git mv` the raw file (and its `.meta.json` sidecar, if any) into
 `inbox/archive/<source>/`, preserving the source subfolder. Raw items are
 never deleted, only archived.
-
-### 7. Commit
-
-One commit per raw item, even if step 3 produced multiple notes:
-
-- `inbox: create "<title>" (<type>) from <source>`
-- `inbox: update "<title>" from <source>`
-- `inbox: create "<title 1>" (<type 1>) + "<title 2>" (<type 2>) from <source>`
-  (when split)
-
-Stage exactly the files touched by this cycle (the new/edited note(s), the
-updated `index.md`, the archived raw file + sidecar) — don't sweep in
-unrelated changes.
