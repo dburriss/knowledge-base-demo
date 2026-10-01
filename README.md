@@ -21,6 +21,8 @@ Locally, `eru inbox process -i kb` does the same via the `default` channel (`cop
 
 ## Setup
 
+Find the detailed setup instructions here: [Generate docs from inbox changes with a GitHub Agentic Workflow](https://github.com/dburriss/eru/blob/main/docs/how-to/generate-docs-from-inbox-with-gh-aw.md)
+
 ```bash
 mise install          # apm, dotnet, ck
 dotnet tool install --global Eru.Tool
