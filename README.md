@@ -66,15 +66,27 @@ Use MCP for lookups. Use the CLI to pull notes into a project as tracked files.
 
 ## Extra: use it yourself
 
-**Add knowledge.** Register this repo as a remote inbox, then send it a note, file or URL:
+**Add knowledge.** Register this repo as a remote inbox, then send it notes, links or files:
 
 ```bash
 eru inbox add kb git@github.com:dburriss/knowledge-base-demo.git
 eru inbox send "note" -i kb
+eru inbox send https://example.com/article -i kb
+eru inbox send ./notes.pdf -i kb
 ```
 
 After a few minutes it is curated and merged automatically. Nothing to push or review. Your original
 is kept in `inbox/archive/`. With a single inbox you can drop `-i kb`.
 
-**Read it.** Browse the [website](https://devonburriss.me/knowledge-base-demo), start at
-[`index.md`](index.md), or search from the terminal with `eru search <term>`.
+**Browse it.** Use the [website](https://devonburriss.me/knowledge-base-demo), or start at
+[`index.md`](index.md).
+
+**Search it.** Register the source as in [section 2](#2-connect-it-to-agents), then use the CLI:
+
+```bash
+eru search diataxis              # find notes by term
+eru search diataxis -t docs      # filter by tag
+eru source files kb              # list everything the source publishes
+eru add kb:documentation/diataxis.md   # copy a note into your project
+eru sync                         # refresh sources and the search index
+```
