@@ -1,8 +1,3 @@
----
-type: index
-title: Documentation index
----
-
 # Documentation index
 
 | Title | Type | Tags | Generated | Status |

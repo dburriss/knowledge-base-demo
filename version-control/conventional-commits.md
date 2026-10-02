@@ -3,7 +3,6 @@ type: reference
 resource: https://www.conventionalcommits.org/en/v1.0.0/
 tags: [conventional-commits, git, commit-messages, semver, specification]
 generated: 2026-10-01
-verified: true
 status: draft
 stale_after: null
 sources: [inbox/archive/default/2026-09-30T061516-v1-0.md]

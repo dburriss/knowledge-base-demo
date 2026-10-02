@@ -1,8 +1,3 @@
----
-type: index
-title: Software engineering index
----
-
 # Software engineering index
 
 | Title | Type | Tags | Generated | Status |

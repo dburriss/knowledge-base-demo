@@ -3,7 +3,6 @@ type: explanation
 resource: https://diataxis.fr/
 tags: [diataxis, documentation, information-architecture]
 generated: 2026-10-01
-verified: true
 status: draft
 stale_after: null
 sources: [inbox/archive/default/2026-09-30T112005-diataxis-fr.md]

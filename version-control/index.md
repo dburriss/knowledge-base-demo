@@ -1,8 +1,3 @@
----
-type: index
-title: Version control index
----
-
 # Version control index
 
 | Title | Type | Tags | Generated | Status |

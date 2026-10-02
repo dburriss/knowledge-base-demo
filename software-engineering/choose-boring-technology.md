@@ -3,7 +3,6 @@ type: explanation
 resource: https://mcfunley.com/choose-boring-technology
 tags: [technology-selection, architecture, operations, engineering-practice]
 generated: 2026-10-01
-verified: true
 status: draft
 stale_after: null
 sources: [inbox/archive/default/2026-10-01T044829-choose-boring-technology.md]

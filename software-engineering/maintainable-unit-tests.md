@@ -3,7 +3,6 @@ type: how-to
 resource: https://devonburriss.me/maintainable-unit-tests/
 tags: [unit-testing, testing, refactoring, test-doubles, builders, csharp]
 generated: 2026-10-01
-verified: true
 status: draft
 stale_after: null
 sources: [inbox/archive/default/2026-10-01T052940-maintainable-unit-tests.md]

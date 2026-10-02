@@ -3,7 +3,6 @@ type: reference
 resource: https://docs.yworks.com/yfiles/doc/developers-guide/graphml.html
 tags: [graphml, graph, xml, yfiles, file-format]
 generated: 2026-09-30
-verified: false
 status: draft
 stale_after: null
 sources: [inbox/archive/default/2026-09-30T055212-graphml.md]

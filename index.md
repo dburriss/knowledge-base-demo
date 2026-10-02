@@ -1,8 +1,6 @@
 ---
-type: index
-title: Knowledge base index
+okf_version: "0.2"
 ---
-
 # Knowledge base index
 
 | Domain | Description |

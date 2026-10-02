@@ -1,8 +1,3 @@
----
-type: index
-title: APM index
----
-
 # APM index
 
 | Title | Type | Tags | Generated | Status |

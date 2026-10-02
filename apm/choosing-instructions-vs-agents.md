@@ -3,7 +3,6 @@ type: explanation
 resource: https://microsoft.github.io/apm/producer/author-primitives/instructions-and-agents/#agents
 tags: [apm, instructions, agents, diataxis]
 generated: 2026-09-30
-verified: false
 status: draft
 stale_after: null
 sources: [inbox/archive/default/2026-09-30T050933-instructions-and-agents.md]

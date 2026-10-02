@@ -1,8 +1,3 @@
----
-type: index
-title: Graph formats index
----
-
 # Graph formats index
 
 | Title | Type | Tags | Generated | Status |
