@@ -45,6 +45,7 @@
     "siteIgnorePatterns": [
       "index.md",
       "log.md",
+      "README.md",
       ".agents/**",
       ".claude/**",
       ".github/**",
