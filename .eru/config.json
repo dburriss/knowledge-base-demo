@@ -1,6 +1,18 @@
 {
   "version": 1,
-  "sources": [],
+  "sources": [
+    {
+      "name": "kb",
+      "url": "https://github.com/dburriss/knowledge-base-demo",
+      "branch": "main",
+      "bundles": [
+        {
+          "path": "",
+          "kind": "okf"
+        }
+      ]
+    }
+  ],
   "collections": [],
   "inboxes": {
     "kb": {
@@ -20,7 +32,8 @@
             "timeout": null
           }
         }
-      }
+      },
+      "branch": null
     }
   },
   "settings": {
@@ -31,8 +44,14 @@
     "allowBinaries": null,
     "siteIgnorePatterns": [
       "index.md",
-      "log.md"
+      "log.md",
+      ".agents/**",
+      ".claude/**",
+      ".github/**",
+      "apm_modules/**",
+      "inbox/**"
     ],
+    "okfIgnorePatterns": null,
     "defaultInbox": null,
     "inboxWatchIntervalSeconds": null
   }
