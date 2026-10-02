@@ -4,7 +4,7 @@ A demo knowledge base built with [eru](https://github.com/dburriss/eru), followi
 [Set up a knowledge repo](https://github.com/dburriss/eru/blob/main/docs/how-to/set-up-a-knowledge-repo.md),
 with curation run by a [GitHub Agentic Workflow](https://github.com/github/gh-aw).
 
-## How it works
+## Adding knowledge: how inbox ingestion works
 
 1. Register this repo as a remote inbox, then send it a note, file, or URL:
    ```bash
