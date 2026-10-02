@@ -4,7 +4,7 @@ dependencies:
 - repo_url: dburriss/eru
   name: eru-ingestor
   host: github.com
-  resolved_commit: a77839fb515b90e26dd41cb50697221dcbb5fe55
+  resolved_commit: 09489c7e3ea07f0b052c0a044716489cb7a714c2
   version: 1.0.0
   virtual_path: agents/ingestor.agent.md
   is_virtual: true
@@ -12,13 +12,13 @@ dependencies:
   - .claude/agents/ingestor.md
   - .github/agents/ingestor.agent.md
   deployed_file_hashes:
-    .claude/agents/ingestor.md: sha256:6ccc38ce85a70bae67caf77264c3352776fc6a0fac9847314d4ed4f31d010226
-    .github/agents/ingestor.agent.md: sha256:6ccc38ce85a70bae67caf77264c3352776fc6a0fac9847314d4ed4f31d010226
-  content_hash: sha256:b9ec3de14cc047f7f1baa238671d0cef2b9242b654bcc12eb6f190a772bfe468
+    .claude/agents/ingestor.md: sha256:5a7f94dbb22a95d78b1feb504dd10674230b156ee9a206e62472858f609061ff
+    .github/agents/ingestor.agent.md: sha256:5a7f94dbb22a95d78b1feb504dd10674230b156ee9a206e62472858f609061ff
+  content_hash: sha256:d50af5dae4e5a3b0d3d63736d5c306e49dda8e5307fbf579b4b31888adac290c
 - repo_url: dburriss/eru
   name: eru
   host: github.com
-  resolved_commit: a77839fb515b90e26dd41cb50697221dcbb5fe55
+  resolved_commit: 09489c7e3ea07f0b052c0a044716489cb7a714c2
   version: unknown
   virtual_path: skills/eru
   is_virtual: true
@@ -33,17 +33,17 @@ dependencies:
   - .claude/skills/eru/references/commands.md
   - .claude/skills/eru/references/mcp.md
   deployed_file_hashes:
-    .agents/skills/eru/SKILL.md: sha256:5baa942ac43fa8324df47f94b725bc627eac0a9b4ae9f8c322e55fe0416a16cf
-    .agents/skills/eru/references/commands.md: sha256:e03612f5c7f67b18d30b8073b16ffd1257b40b3b9fb207c0977a49432ef45156
+    .agents/skills/eru/SKILL.md: sha256:2b42422a23b2053ff4b36497f31b4322a24c53306c38ef110ec312d97516a143
+    .agents/skills/eru/references/commands.md: sha256:0e25bbd6164139da09a2906e4757e2551ceff2629114b3aff5ddb733eece2a3a
     .agents/skills/eru/references/mcp.md: sha256:a9d222f190fd3b10cefac898402f5416ceaaa3cafb22325b7f90472a87abe190
-    .claude/skills/eru/SKILL.md: sha256:5baa942ac43fa8324df47f94b725bc627eac0a9b4ae9f8c322e55fe0416a16cf
-    .claude/skills/eru/references/commands.md: sha256:e03612f5c7f67b18d30b8073b16ffd1257b40b3b9fb207c0977a49432ef45156
+    .claude/skills/eru/SKILL.md: sha256:2b42422a23b2053ff4b36497f31b4322a24c53306c38ef110ec312d97516a143
+    .claude/skills/eru/references/commands.md: sha256:0e25bbd6164139da09a2906e4757e2551ceff2629114b3aff5ddb733eece2a3a
     .claude/skills/eru/references/mcp.md: sha256:a9d222f190fd3b10cefac898402f5416ceaaa3cafb22325b7f90472a87abe190
-  content_hash: sha256:94c365f07691d346dbca72c69e3bfbeeae8a840996c97a37007a67517cdbde23
+  content_hash: sha256:cd3ce9908634c160471ecdb92b767bb955f5c4faf856488c4b7cf1ff1697de1e
 - repo_url: dburriss/eru
   name: organizing-documentation
   host: github.com
-  resolved_commit: a77839fb515b90e26dd41cb50697221dcbb5fe55
+  resolved_commit: 09489c7e3ea07f0b052c0a044716489cb7a714c2
   version: unknown
   virtual_path: skills/organizing-documentation
   is_virtual: true
@@ -54,13 +54,13 @@ dependencies:
   - .claude/skills/organizing-documentation
   - .claude/skills/organizing-documentation/SKILL.md
   deployed_file_hashes:
-    .agents/skills/organizing-documentation/SKILL.md: sha256:25c2700a9731942523b9e43516a86b41bca274836690446b5746b253b88cff9e
-    .claude/skills/organizing-documentation/SKILL.md: sha256:25c2700a9731942523b9e43516a86b41bca274836690446b5746b253b88cff9e
-  content_hash: sha256:0a61a06d02d243d3d5f3f22bebad07060925d7cc63122b504b98a14656e7c616
+    .agents/skills/organizing-documentation/SKILL.md: sha256:f060dd27497a95e002d0e114db21bfd2e48d47448ccb7a3b397476d0a60b1631
+    .claude/skills/organizing-documentation/SKILL.md: sha256:f060dd27497a95e002d0e114db21bfd2e48d47448ccb7a3b397476d0a60b1631
+  content_hash: sha256:4ab6a53b3374e300ed9a62d2a5f9ae8328461d40337b5e5427c68456f6cfb916
 - repo_url: dburriss/eru
   name: semantic-search
   host: github.com
-  resolved_commit: a77839fb515b90e26dd41cb50697221dcbb5fe55
+  resolved_commit: 09489c7e3ea07f0b052c0a044716489cb7a714c2
   version: unknown
   virtual_path: skills/semantic-search
   is_virtual: true
@@ -104,7 +104,7 @@ deployments:
   owners:
   - dburriss/eru/agents/ingestor.agent.md
   active_owner: dburriss/eru/agents/ingestor.agent.md
-  content_hash: sha256:6ccc38ce85a70bae67caf77264c3352776fc6a0fac9847314d4ed4f31d010226
+  content_hash: sha256:5a7f94dbb22a95d78b1feb504dd10674230b156ee9a206e62472858f609061ff
 - kind: project-relative
   target: claude
   value: .claude/skills/eru
@@ -122,7 +122,7 @@ deployments:
   owners:
   - dburriss/eru/skills/eru
   active_owner: dburriss/eru/skills/eru
-  content_hash: sha256:5baa942ac43fa8324df47f94b725bc627eac0a9b4ae9f8c322e55fe0416a16cf
+  content_hash: sha256:2b42422a23b2053ff4b36497f31b4322a24c53306c38ef110ec312d97516a143
 - kind: project-relative
   target: claude
   value: .claude/skills/eru/references/commands.md
@@ -131,7 +131,7 @@ deployments:
   owners:
   - dburriss/eru/skills/eru
   active_owner: dburriss/eru/skills/eru
-  content_hash: sha256:e03612f5c7f67b18d30b8073b16ffd1257b40b3b9fb207c0977a49432ef45156
+  content_hash: sha256:0e25bbd6164139da09a2906e4757e2551ceff2629114b3aff5ddb733eece2a3a
 - kind: project-relative
   target: claude
   value: .claude/skills/eru/references/mcp.md
@@ -185,7 +185,7 @@ deployments:
   owners:
   - dburriss/eru/skills/organizing-documentation
   active_owner: dburriss/eru/skills/organizing-documentation
-  content_hash: sha256:25c2700a9731942523b9e43516a86b41bca274836690446b5746b253b88cff9e
+  content_hash: sha256:f060dd27497a95e002d0e114db21bfd2e48d47448ccb7a3b397476d0a60b1631
 - kind: project-relative
   target: claude
   value: .claude/skills/semantic-search
@@ -221,7 +221,7 @@ deployments:
   owners:
   - dburriss/eru/skills/eru
   active_owner: dburriss/eru/skills/eru
-  content_hash: sha256:5baa942ac43fa8324df47f94b725bc627eac0a9b4ae9f8c322e55fe0416a16cf
+  content_hash: sha256:2b42422a23b2053ff4b36497f31b4322a24c53306c38ef110ec312d97516a143
 - kind: project-relative
   target: copilot
   value: .agents/skills/eru/references/commands.md
@@ -230,7 +230,7 @@ deployments:
   owners:
   - dburriss/eru/skills/eru
   active_owner: dburriss/eru/skills/eru
-  content_hash: sha256:e03612f5c7f67b18d30b8073b16ffd1257b40b3b9fb207c0977a49432ef45156
+  content_hash: sha256:0e25bbd6164139da09a2906e4757e2551ceff2629114b3aff5ddb733eece2a3a
 - kind: project-relative
   target: copilot
   value: .agents/skills/eru/references/mcp.md
@@ -284,7 +284,7 @@ deployments:
   owners:
   - dburriss/eru/skills/organizing-documentation
   active_owner: dburriss/eru/skills/organizing-documentation
-  content_hash: sha256:25c2700a9731942523b9e43516a86b41bca274836690446b5746b253b88cff9e
+  content_hash: sha256:f060dd27497a95e002d0e114db21bfd2e48d47448ccb7a3b397476d0a60b1631
 - kind: project-relative
   target: copilot
   value: .agents/skills/semantic-search
@@ -311,7 +311,7 @@ deployments:
   owners:
   - dburriss/eru/agents/ingestor.agent.md
   active_owner: dburriss/eru/agents/ingestor.agent.md
-  content_hash: sha256:6ccc38ce85a70bae67caf77264c3352776fc6a0fac9847314d4ed4f31d010226
+  content_hash: sha256:5a7f94dbb22a95d78b1feb504dd10674230b156ee9a206e62472858f609061ff
 - kind: uri
   target: mcp
   value: eru

@@ -63,9 +63,43 @@ whether or how to commit; follow any commit instructions given alongside it.
 
 Compare the item's topic against each existing top-level folder's
 `README.md` description. Best-effort match — if nothing fits reasonably,
-create a new top-level folder with its own `README.md` (human prose
-description) and `index.md` (OKF catalog, same shape as existing folders —
-see any existing `index.md` for the format).
+create a new top-level folder:
+
+1. Write its `README.md` as plain prose describing the domain. A `README.md`
+   is **not part of the OKF bundle** (it has no `type`, so it is not a
+   concept): give it **no frontmatter**, and do not list it in any
+   `index.md`. It exists only as the human description used for matching.
+2. Create its `index.md` (the OKF catalog). Run `eru okf init <repo-root>` if
+   `eru` is available: it creates any missing `index.md` (folder and root)
+   and never overwrites existing files. Otherwise write it by hand: a
+   markdown heading followed by the catalog table
+   `| Concept | Type | Tags | Stale after |`. A folder `index.md` has **NO
+   YAML frontmatter** — no `---` block at all. Do not copy frontmatter from
+   any existing `index.md`; existing indexes may carry it by mistake.
+3. Add a row for the new folder to the root `index.md` (see below).
+
+#### The bundle root
+
+The repo root `index.md` is the OKF bundle marker. Its **only** permitted
+frontmatter is `okf_version`:
+
+```markdown
+---
+okf_version: "0.2"
+---
+
+# <Knowledge base title>
+
+| Domain | Description |
+|---|---|
+| [<folder>](<folder>/index.md) | <one line> |
+```
+
+- If the root `index.md` does not exist, create it as above (`eru okf init`
+  does this), with the top-level domain table after the frontmatter.
+- If it exists with any other frontmatter keys, reduce the frontmatter to
+  `okf_version` only. Keep an existing `okf_version` value as it is.
+- Without `okf_version` eru does not recognise the repo as an OKF bundle.
 
 ### 3. Pick a Diataxis type (and split if mixed)
 
@@ -113,21 +147,87 @@ similarity yourself.
                           # sidecar (copied-in file), whichever applies
   tags: []               # reuse existing tags from the target folder's
                           # index.md / other folders before inventing new ones
-  generated: <today>
-  verified: false
+  generated:
+    by: ingestor/<model>   # actor: <producer>/<version>
+    at: <now>              # full ISO 8601 datetime with UTC offset, e.g. 2026-10-01T09:30:00Z
   status: draft
-  stale_after: null
-  sources: [inbox/archive/<source>/<file>]
+  sources:
+    - resource: inbox/archive/<source>/<file>
+      title: <short label>   # optional; add `id: <key>` to cite a claim as [^key]
   ---
   ```
+
+  Omit `verified` — absent means unverified. Never write it, not even as
+  `unknown` or `false`: a reviewer records it later with `eru okf verify <file>`.
+  Omit `stale_after` unless the note has a known expiry (ISO 8601 datetime
+  with offset).
+
+  **What is valid OKF v0.2 frontmatter** (the spec is
+  <https://github.com/GoogleCloudPlatform/open-knowledge-format>; this repo
+  targets v0.2):
+
+  | Key | Rule |
+  |---|---|
+  | `type` | **Required**, non-empty string. The only key `eru okf validate` enforces. |
+  | `title`, `description`, `resource`, `tags` | Recommended. `description` is one sentence; `tags` is a YAML list of short strings; `resource` is a URI of the underlying asset (or omit/`null` for abstract ideas). Quote URLs. |
+  | `generated` | Mapping `{ by, at }`, both required. `by` is an actor, `at` the last meaningful content change. |
+  | `verified` | List of `{ by, at }` (both required), or a single mapping. Records independent checks; omit until someone has checked the note. |
+  | `status` | `draft`, `stable` or `deprecated`; absent means `stable`. |
+  | `stale_after` | Absolute ISO 8601 datetime **with a UTC offset**; the note is stale when now ≥ this. Not a duration. |
+  | `sources` | List of mappings, each with a **required `resource`** (URL, bundle path, or a scope description like `all queries in project X`); optional `id`, `title`, `author` (actor), `usage_count` (integer), `last_modified` (datetime with offset). Never a list of bare strings. A top-level `usage_window: { from, to }` frames `usage_count`. |
+
+  - **Actors** (`by`, `author`) are `<producer>/<version>` for agents (e.g.
+    `ingestor/claude-sonnet-5-5`), `human:<id>` for people and
+    `process:<id>` for automated jobs. Only a person confirming a note may
+    use `human:`; never write a `human:` actor yourself.
+  - **Datetimes** are full ISO 8601 with an offset (`2026-10-01T09:30:00Z`),
+    never a bare date and never `<today>`.
+  - **Trust** is derived from `verified`: none → unverified; only non-`human:`
+    actors → machine-confirmed; any `human:` actor → human-reviewed. You
+    produce unverified notes.
+  - **Citing a claim:** give the source an `id` and use a footnote in the body
+    (`...sharded daily.[^ga4]` with `[^ga4]: GA4 export schema`). Do not use a
+    `# Citations` body section or a `timestamp` key; those are v0.1 and
+    superseded by `sources` and `generated.at`.
+  - Unknown extra keys and unknown `type` values are allowed; preserve keys
+    you did not write when editing an existing note.
+  - Reserved files: only the root `index.md` has frontmatter (just
+    `okf_version: "0.2"`); folder `index.md` files have none; `log.md` date
+    headings are `## YYYY-MM-DD`, newest first.
 
 ### 5. Update the folder's index.md
 
 Add a new row, or update the existing row (`tags`, `stale_after`) if you
-merged into an existing note.
+merged into an existing note. `eru okf init`/`fix` never add rows to an
+existing `index.md`, so do this by hand.
+
+A folder `index.md` has **NO YAML frontmatter**: just a markdown heading and
+the catalog table. If the one you are editing starts with a `---` block
+(e.g. `type: index`, `title: ...`), remove that block. Do not model a new or
+edited index on one that has frontmatter. Do not list `README.md` in the table.
 
 ### 6. Archive the raw item
 
 `git mv` the raw file (and its `.meta.json` sidecar, if any) into
 `inbox/archive/<source>/`, preserving the source subfolder. Raw items are
 never deleted, only archived.
+
+### 7. Self-check
+
+Before finishing, validate every folder you touched (the domain folder, plus
+the repo root if you edited the root `index.md`):
+
+```bash
+eru okf validate <domain folder>
+```
+
+If it reports violations, run `eru okf fix <domain folder> --dry-run` to
+preview the mechanical repairs (index frontmatter, missing `type`), then
+`eru okf fix <domain folder>` to apply them. Fix by hand anything `fix`
+reports as needing manual attention (e.g. malformed YAML in a note), and
+re-run `eru okf validate` until it exits 0. Also clear any `⚠` warnings it
+prints for your notes: they mean a field is not OKF v0.2-shaped (e.g. a bare
+date in `generated`, a boolean `verified`, string entries in `sources`). Archived items under `inbox/` are
+not validated. If `eru` is not available, re-read the rules above (no
+frontmatter in folder indexes, `okf_version` only at the root, a non-empty
+`type` on every note) and check your files against them.

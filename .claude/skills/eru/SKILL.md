@@ -112,6 +112,7 @@ Manage knowledge sources.
 ```bash
 eru source add https://github.com/my-org/knowledge
 eru source add https://github.com/my-org/knowledge --name org-knowledge --branch main --global
+eru source add https://github.com/my-org/knowledge --scan   # also detect OKF bundles (index.md with okf_version); without --scan none are registered
 eru source list
 eru source view knowledge
 eru source view knowledge --full
@@ -193,13 +194,26 @@ The site is fully navigable as plain HTML with no JavaScript. JS adds in-place s
 
 ---
 
-### `eru okf validate`
+### `eru okf init` / `fix` / `validate`
 
-Check a directory tree for OKF §11 conformance (frontmatter with a non-empty `type`, valid `index.md`/`log.md` structure).
+Create, repair and check an OKF bundle. `README.md` and dot-directories are not part of the bundle and are skipped. Folder `index.md` files have no frontmatter; only the root `index.md` has frontmatter, and only `okf_version` (this is the bundle marker).
 
 ```bash
-eru okf validate ./my-bundle   # exits 1 if any conformance violations are found
+eru okf init ./my-bundle                 # create missing index.md files (root with okf_version, catalog table per folder); never overwrites
+eru okf fix ./my-bundle --dry-run        # preview repairs: index frontmatter, missing type, log.md dates
+eru okf fix ./my-bundle                  # apply them (--default-type <t> sets the type for untyped concepts); exits 1 if manual fixes remain
+eru okf validate ./my-bundle             # OKF §11 conformance; exits 1 if any violations are found
 ```
+
+**What valid OKF v0.2 looks like** (eru targets v0.2; new bundles get `okf_version: "0.2"`):
+
+- Every concept `.md` needs frontmatter with a non-empty `type`; that is the only hard requirement. Unknown keys and types are fine.
+- Optional keys, shaped as: `generated: { by, at }`; `verified: [{ by, at }, ...]` (never write it by hand or as a placeholder like `unknown`/`false`; omit it and use `eru okf verify <file>`); `status: draft|stable|deprecated` (absent = stable); `stale_after: <ISO 8601 datetime with offset>`; `sources: [{ resource, id?, title?, author?, usage_count?, last_modified? }]`, with an optional top-level `usage_window: { from, to }`.
+- `by`/`author` are actors: `<producer>/<version>`, `human:<id>` or `process:<id>`. Only `human:` verifications make a note "human-reviewed" in the site; none = unverified.
+- Datetimes include a UTC offset (`2026-10-01T09:30:00Z`); a bare date is not v0.2-shaped. v0.1's `timestamp` and body `# Citations` are superseded by `generated.at` and `sources`; eru still reads `timestamp` as a fallback.
+- `validate` fails only on the hard rules; v0.2 shape problems print as `⚠` warnings and don't change the exit code.
+
+Run `validate` after adding or editing notes; use `init`/`fix` to resolve what it reports. Neither adds rows to an existing `index.md`. See `references/commands.md` for all flags and output formats.
 
 ---
 
