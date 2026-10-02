@@ -17,6 +17,10 @@ with curation run by a [GitHub Agentic Workflow](https://github.com/github/gh-aw
    (e.g. [`software-engineering/`](software-engineering/)). Your original item is kept in
    `inbox/archive/`.
 
+The curated notes are published to GitHub Pages by `.github/workflows/pages.yml`, which runs
+`eru sync` and `eru site generate` (the repo is registered as an OKF bundle source in `.eru/config.json`).
+Enable it once under Settings → Pages → Source: GitHub Actions.
+
 Locally, `eru inbox process -i kb` does the same via the `default` channel (`copilot --acp`).
 
 ## Setup

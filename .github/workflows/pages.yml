@@ -1,0 +1,60 @@
+name: Publish site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.md"
+      - ".eru/config.json"
+      - ".github/workflows/pages.yml"
+  # Ingest PRs are merged by automerge-ingest.yml using GITHUB_TOKEN, and pushes made
+  # with GITHUB_TOKEN don't trigger other workflows, so rebuild when that workflow ends.
+  workflow_run:
+    workflows: ["Automerge ingest PRs"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Install eru
+        run: dotnet tool install --global Eru.Tool --version 0.9.1
+
+      - name: Sync the knowledge source
+        run: eru sync
+
+      - name: Generate the site
+        run: eru site generate -o _site
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
